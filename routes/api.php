@@ -22,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::GET('allHolidays', 'ApiController@allHolidays');
 
 Route::POST('store-holiday', 'ApiController@storeHoliday');
+
+Route::GET('/holiday/{id}', 'ApiController@get_holidays_by_id');

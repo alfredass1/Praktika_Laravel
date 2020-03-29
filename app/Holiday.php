@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Holiday extends Model
 {
-    protected $fillable = ['title','description', 'img'];
+    protected $fillable = ['title','description','img'];
 }

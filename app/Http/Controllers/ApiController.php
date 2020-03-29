@@ -21,8 +21,14 @@ class ApiController extends Controller
 
     public function storeHoliday(Request $request)
     {
-        $path = $request->file('img')->store('public/images');
-        $filename = str_replace('/images', "", $path);
+
+
+        if ($request->hasFile('img')) {
+            $path = $request->file('img')->store('public/images');
+            $filename = str_replace('public/', "", $path);
+
+
+        }
 
         Holiday::create([
             'title' => request('title'),
@@ -31,9 +37,16 @@ class ApiController extends Controller
 
         ]);
 
+        return $path;
         return response($request);
     }
 
+
+    public function get_holidays_by_id($id)
+    {
+
+        return Holiday::find($id);
+    }
 
 
 
